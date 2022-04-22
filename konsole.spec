@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konsole
-Version  : 21.12.3
-Release  : 52
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/konsole-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/konsole-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/konsole-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 53
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/konsole-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/konsole-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/konsole-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 MIT
+License  : CC0-1.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
 Requires: konsole-bin = %{version}-%{release}
 Requires: konsole-data = %{version}-%{release}
 Requires: konsole-lib = %{version}-%{release}
@@ -28,6 +28,7 @@ BuildRequires : knotifyconfig-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86vm-dev
 BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : zlib-dev
 Patch1: 0001-Fix-build-with-LTO-enabled.patch
 
 %description
@@ -90,8 +91,8 @@ locales components for the konsole package.
 
 
 %prep
-%setup -q -n konsole-21.12.3
-cd %{_builddir}/konsole-21.12.3
+%setup -q -n konsole-22.04.0
+cd %{_builddir}/konsole-22.04.0
 %patch1 -p1
 
 %build
@@ -99,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646529737
+export SOURCE_DATE_EPOCH=1650665241
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -115,19 +116,24 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646529737
+export SOURCE_DATE_EPOCH=1650665241
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konsole
-cp %{_builddir}/konsole-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/konsole-21.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/konsole/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
-cp %{_builddir}/konsole-21.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/konsole/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/konsole-21.12.3/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/konsole-21.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konsole/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/konsole-21.12.3/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/konsole-21.12.3/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/konsole-21.12.3/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konsole-21.12.3/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konsole-21.12.3/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/konsole/adadb67a9875aeeac285309f1eab6e47d9ee08a7
+cp %{_builddir}/konsole-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/konsole-22.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/konsole/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/konsole-22.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/konsole/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/konsole-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/konsole/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/konsole-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/konsole-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konsole/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/konsole-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/konsole-22.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/konsole-22.04.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/konsole/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/konsole-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konsole-22.04.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/konsole/adadb67a9875aeeac285309f1eab6e47d9ee08a7
 pushd clr-build
 %make_install
 popd
@@ -135,6 +141,7 @@ popd
 
 %files
 %defattr(-,root,root,-)
+/usr/lib64/kconf_update_bin/konsole_globalaccel
 
 %files bin
 %defattr(-,root,root,-)
@@ -144,7 +151,8 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/applications/org.kde.konsole.desktop
-/usr/share/khotkeys/konsole.khotkeys
+/usr/share/kconf_update/konsole_globalaccel.upd
+/usr/share/kio/servicemenus/konsolerun.desktop
 /usr/share/knotifications5/konsole.notifyrc
 /usr/share/knsrcfiles/konsole.knsrc
 /usr/share/konsole/1x2-terminals.json
@@ -166,7 +174,6 @@ popd
 /usr/share/konsole/linux.keytab
 /usr/share/konsole/macos.keytab
 /usr/share/konsole/solaris.keytab
-/usr/share/kservices5/ServiceMenus/konsolerun.desktop
 /usr/share/kservices5/konsolepart.desktop
 /usr/share/kservicetypes5/terminalemulator.desktop
 /usr/share/metainfo/org.kde.konsole.appdata.xml
@@ -192,6 +199,8 @@ popd
 /usr/share/doc/HTML/pt_BR/konsole/draganddrop-contextmenu.png
 /usr/share/doc/HTML/pt_BR/konsole/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/konsole/index.docbook
+/usr/share/doc/HTML/ru/konsole/index.cache.bz2
+/usr/share/doc/HTML/ru/konsole/index.docbook
 /usr/share/doc/HTML/sr/konsole/index.cache.bz2
 /usr/share/doc/HTML/sr/konsole/index.docbook
 /usr/share/doc/HTML/sv/konsole/index.cache.bz2
@@ -205,22 +214,27 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkonsoleapp.so.1
-/usr/lib64/libkonsoleapp.so.21.12.3
+/usr/lib64/libkonsoleapp.so.22.04.0
 /usr/lib64/libkonsoleprivate.so.1
-/usr/lib64/libkonsoleprivate.so.21.12.3
+/usr/lib64/libkonsoleprivate.so.22.04.0
 /usr/lib64/qt5/plugins/konsolepart.so
+/usr/lib64/qt5/plugins/konsoleplugins/konsole_quickcommandsplugin.so
 /usr/lib64/qt5/plugins/konsoleplugins/konsole_sshmanagerplugin.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/konsole/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+/usr/share/package-licenses/konsole/19d98e1b6f8ef12849ea4012a052d3907f336c91
 /usr/share/package-licenses/konsole/20079e8f79713dce80ab09774505773c926afa2a
 /usr/share/package-licenses/konsole/2a638514c87c4923c0570c55822620fad56f2a33
 /usr/share/package-licenses/konsole/6091db0aead0d90182b93d3c0d09ba93d188f907
 /usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976
 /usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/konsole/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+/usr/share/package-licenses/konsole/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/konsole/adadb67a9875aeeac285309f1eab6e47d9ee08a7
 /usr/share/package-licenses/konsole/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
 /usr/share/package-licenses/konsole/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f konsole.lang
