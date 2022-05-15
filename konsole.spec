@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konsole
-Version  : 22.04.0
-Release  : 53
-URL      : https://download.kde.org/stable/release-service/22.04.0/src/konsole-22.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.0/src/konsole-22.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.0/src/konsole-22.04.0.tar.xz.sig
+Version  : 22.04.1
+Release  : 54
+URL      : https://download.kde.org/stable/release-service/22.04.1/src/konsole-22.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.1/src/konsole-22.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.1/src/konsole-22.04.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -91,8 +91,8 @@ locales components for the konsole package.
 
 
 %prep
-%setup -q -n konsole-22.04.0
-cd %{_builddir}/konsole-22.04.0
+%setup -q -n konsole-22.04.1
+cd %{_builddir}/konsole-22.04.1
 %patch1 -p1
 
 %build
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650665241
+export SOURCE_DATE_EPOCH=1652643172
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -116,24 +116,24 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1650665241
+export SOURCE_DATE_EPOCH=1652643172
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konsole
-cp %{_builddir}/konsole-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/konsole-22.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/konsole/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
-cp %{_builddir}/konsole-22.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/konsole/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/konsole-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/konsole/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/konsole-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/konsole-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konsole/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/konsole-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/konsole-22.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/konsole-22.04.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/konsole/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/konsole-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/19d98e1b6f8ef12849ea4012a052d3907f336c91
-cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/konsole-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/konsole-22.04.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/konsole/adadb67a9875aeeac285309f1eab6e47d9ee08a7
+cp %{_builddir}/konsole-22.04.1/COPYING %{buildroot}/usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/konsole-22.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/konsole/0c4be15f5177aafffe980ca09c0f4ca6ed741f43
+cp %{_builddir}/konsole-22.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/konsole/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/konsole-22.04.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/konsole/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/konsole-22.04.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/konsole-22.04.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/konsole/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/konsole-22.04.1/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/konsole-22.04.1/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/konsole-22.04.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/konsole/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/konsole-22.04.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/konsole/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/konsole-22.04.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konsole-22.04.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/konsole/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/konsole-22.04.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konsole-22.04.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/konsole/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/konsole-22.04.1/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/konsole/adadb67a9875aeeac285309f1eab6e47d9ee08a7
 pushd clr-build
 %make_install
 popd
@@ -214,9 +214,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkonsoleapp.so.1
-/usr/lib64/libkonsoleapp.so.22.04.0
+/usr/lib64/libkonsoleapp.so.22.04.1
 /usr/lib64/libkonsoleprivate.so.1
-/usr/lib64/libkonsoleprivate.so.22.04.0
+/usr/lib64/libkonsoleprivate.so.22.04.1
 /usr/lib64/qt5/plugins/konsolepart.so
 /usr/lib64/qt5/plugins/konsoleplugins/konsole_quickcommandsplugin.so
 /usr/lib64/qt5/plugins/konsoleplugins/konsole_sshmanagerplugin.so
