@@ -1249,6 +1249,9 @@ libkonsoleprivate.so.1:_ZN7Konsole9EmulationC2Ev
 libkonsoleprivate.so.1:_ZN7Konsole9EmulationD0Ev
 libkonsoleprivate.so.1:_ZN7Konsole9EmulationD1Ev
 libkonsoleprivate.so.1:_ZN7Konsole9EmulationD2Ev
+libkonsoleprivate.so.1:_ZN7Konsole9UrlFilter10newHotSpotEiiiiRK11QStringList
+libkonsoleprivate.so.1:_ZN7Konsole9UrlFilterC1Ev
+libkonsoleprivate.so.1:_ZN7Konsole9UrlFilterC2Ev
 libkonsoleprivate.so.1:_ZNK12BookmarkMenu10metaObjectEv
 libkonsoleprivate.so.1:_ZNK21AppColorSchemeChooser17currentSchemeNameEv
 libkonsoleprivate.so.1:_ZNK7Konsole11HistoryType11isUnlimitedEv
