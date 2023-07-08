@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konsole
-Version  : 23.04.2
-Release  : 70
-URL      : https://download.kde.org/stable/release-service/23.04.2/src/konsole-23.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.2/src/konsole-23.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.2/src/konsole-23.04.2.tar.xz.sig
+Version  : 23.04.3
+Release  : 71
+URL      : https://download.kde.org/stable/release-service/23.04.3/src/konsole-23.04.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.04.3/src/konsole-23.04.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.04.3/src/konsole-23.04.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -93,8 +93,8 @@ locales components for the konsole package.
 
 
 %prep
-%setup -q -n konsole-23.04.2
-cd %{_builddir}/konsole-23.04.2
+%setup -q -n konsole-23.04.3
+cd %{_builddir}/konsole-23.04.3
 %patch -P 1 -p1
 
 %build
@@ -102,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686513044
+export SOURCE_DATE_EPOCH=1688847630
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -135,7 +135,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1686513044
+export SOURCE_DATE_EPOCH=1688847630
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konsole
 cp %{_builddir}/konsole-%{version}/COPYING %{buildroot}/usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976 || :
@@ -246,15 +246,15 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libkonsoleapp.so.23.04.2
-/V3/usr/lib64/libkonsoleprivate.so.23.04.2
+/V3/usr/lib64/libkonsoleapp.so.23.04.3
+/V3/usr/lib64/libkonsoleprivate.so.23.04.3
 /V3/usr/lib64/qt5/plugins/konsolepart.so
 /V3/usr/lib64/qt5/plugins/konsoleplugins/konsole_quickcommandsplugin.so
 /V3/usr/lib64/qt5/plugins/konsoleplugins/konsole_sshmanagerplugin.so
 /usr/lib64/libkonsoleapp.so.1
-/usr/lib64/libkonsoleapp.so.23.04.2
+/usr/lib64/libkonsoleapp.so.23.04.3
 /usr/lib64/libkonsoleprivate.so.1
-/usr/lib64/libkonsoleprivate.so.23.04.2
+/usr/lib64/libkonsoleprivate.so.23.04.3
 /usr/lib64/qt5/plugins/konsolepart.so
 /usr/lib64/qt5/plugins/konsoleplugins/konsole_quickcommandsplugin.so
 /usr/lib64/qt5/plugins/konsoleplugins/konsole_sshmanagerplugin.so
