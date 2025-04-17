@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konsole
-Version  : 24.12.3
-Release  : 96
-URL      : https://download.kde.org/stable/release-service/24.12.3/src/konsole-24.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/24.12.3/src/konsole-24.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/24.12.3/src/konsole-24.12.3.tar.xz.sig
+Version  : 25.04.0
+Release  : 97
+URL      : https://download.kde.org/stable/release-service/25.04.0/src/konsole-25.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/25.04.0/src/konsole-25.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/25.04.0/src/konsole-25.04.0.tar.xz.sig
 Source2  : BB463350D6EF31EF.pkey
 Summary  : No detailed summary available
 Group    : Development/Tools
@@ -45,8 +45,9 @@ BuildRequires : zlib-dev
 Patch1: 0001-Fix-build-with-LTO-enabled.patch
 
 %description
-Use CheckXML to verify the file is valid XML
-Use meinproc5 to create an HTML version for local viewing.
+Developer Documentation for Konsole
+NOTE: this document is from 2007; a lot has changed.  Please ask on the
+Konsole mailing list if you need any guidance.
 
 %package bin
 Summary: bin components for the konsole package.
@@ -106,11 +107,11 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) BB463350D6EF31EF' gpg.status
-%setup -q -n konsole-24.12.3
-cd %{_builddir}/konsole-24.12.3
+%setup -q -n konsole-25.04.0
+cd %{_builddir}/konsole-25.04.0
 %patch -P 1 -p1
 pushd ..
-cp -a konsole-24.12.3 buildavx2
+cp -a konsole-25.04.0 buildavx2
 popd
 
 %build
@@ -118,7 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1744134706
+export SOURCE_DATE_EPOCH=1744920910
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -181,7 +182,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1744134706
+export SOURCE_DATE_EPOCH=1744920910
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konsole
 cp %{_builddir}/konsole-%{version}/COPYING %{buildroot}/usr/share/package-licenses/konsole/7c203dee3a03037da436df03c4b25b659c073976 || :
@@ -280,13 +281,13 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libkonsoleapp.so.24.12.3
-/V3/usr/lib64/libkonsoleprivate.so.24.12.3
+/V3/usr/lib64/libkonsoleapp.so.25.04.0
+/V3/usr/lib64/libkonsoleprivate.so.25.04.0
 /V3/usr/lib64/qt6/plugins/kf6/parts/konsolepart.so
 /V3/usr/lib64/qt6/plugins/konsoleplugins/konsole_quickcommandsplugin.so
 /V3/usr/lib64/qt6/plugins/konsoleplugins/konsole_sshmanagerplugin.so
-/usr/lib64/libkonsoleapp.so.24.12.3
-/usr/lib64/libkonsoleprivate.so.24.12.3
+/usr/lib64/libkonsoleapp.so.25.04.0
+/usr/lib64/libkonsoleprivate.so.25.04.0
 /usr/lib64/qt6/plugins/kf6/parts/konsolepart.so
 /usr/lib64/qt6/plugins/konsoleplugins/konsole_quickcommandsplugin.so
 /usr/lib64/qt6/plugins/konsoleplugins/konsole_sshmanagerplugin.so
